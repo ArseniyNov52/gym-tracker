@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport content="width=device-width, initial-scale=1.0">
     <title>Gym Progress Tracker Pro</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH1WWR3XTP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RH1WWR3XTP');
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
@@ -572,7 +581,7 @@
         </div>
     </div>
 
-    <!-- Модальное окно для создания шаблона -->
+    <!-- Модальное окно для создания/редактирования шаблона -->
     <div id="templateModal" class="modal" onclick="if(event.target === this) closeModal('templateModal')">
         <div class="modal-content">
             <div class="modal-header">Создать шаблон тренировки</div>
@@ -677,6 +686,7 @@
         let currentMood = 3;
         let currentBodyWeightType = null;
         let currentViewingTemplate = null;
+        let currentEditingTemplateId = null; // ID шаблона для редактирования
         let timerInterval = null;
         let timerStart = null;
         let weightChart = null;
@@ -796,9 +806,35 @@
                 </li>
             `).join('');
         }
-
+        
         // Управление шаблонами
+        function showEditTemplateModal(templateId) {
+            const template = templates.find(t => t.id === templateId);
+            if (!template) return;
+
+            currentEditingTemplateId = templateId;
+
+            document.querySelector('#templateModal .modal-header').textContent = 'Редактировать шаблон';
+            document.getElementById('templateName').value = template.name;
+
+            const templateExerciseIds = new Set(template.exercises.map(ex => ex.exerciseId));
+            const list = document.getElementById('templateExercisesList');
+            
+            list.innerHTML = exercises.map(ex => `
+                <label style="display: block; margin-bottom: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px;">
+                    <input type="checkbox" value="${ex.id}" style="margin-right: 10px;" ${templateExerciseIds.has(ex.id) ? 'checked' : ''}> ${ex.name}
+                </label>
+            `).join('');
+
+            showModal('templateModal');
+        }
+
         function showCreateTemplateModal() {
+            currentEditingTemplateId = null; // Сбрасываем ID редактирования
+
+            document.querySelector('#templateModal .modal-header').textContent = 'Создать шаблон тренировки';
+            document.getElementById('templateName').value = ''; // Очищаем поле имени
+
             const list = document.getElementById('templateExercisesList');
             list.innerHTML = exercises.map(ex => `
                 <label style="display: block; margin-bottom: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px;">
@@ -816,20 +852,33 @@
                 .map(cb => parseInt(cb.value));
 
             if (selectedExercises.length === 0) return alert('Выберите хотя бы одно упражнение');
+            
+            const mappedExercises = selectedExercises.map(id => {
+                const ex = exercises.find(e => e.id === id);
+                return { exerciseId: id, exerciseName: ex.name };
+            });
 
-            const template = {
-                id: Date.now(),
-                name: name,
-                exercises: selectedExercises.map(id => {
-                    const ex = exercises.find(e => e.id === id);
-                    return { exerciseId: id, exerciseName: ex.name };
-                })
-            };
+            if (currentEditingTemplateId) {
+                // РЕЖИМ РЕДАКТИРОВАНИЯ
+                const templateIndex = templates.findIndex(t => t.id === currentEditingTemplateId);
+                if (templateIndex > -1) {
+                    templates[templateIndex].name = name;
+                    templates[templateIndex].exercises = mappedExercises;
+                }
+            } else {
+                // РЕЖИМ СОЗДАНИЯ (старая логика)
+                const template = {
+                    id: Date.now(),
+                    name: name,
+                    exercises: mappedExercises
+                };
+                templates.push(template);
+            }
 
-            templates.push(template);
             saveData();
             closeModal('templateModal');
             document.getElementById('templateName').value = '';
+            currentEditingTemplateId = null; // Сбрасываем в любом случае
             renderTemplates();
         }
 
@@ -909,6 +958,7 @@
                     </div>
                     <div class="btn-group" style="margin-top: 15px;">
                         <button class="btn btn-small" onclick="viewTemplate(${t.id})">Посмотреть</button>
+                        <button class="btn btn-small btn-secondary" onclick="showEditTemplateModal(${t.id})">Изменить</button>
                         <button class="btn btn-small btn-success" onclick="startFromTemplate(${t.id})">Начать</button>
                     </div>
                 </div>
