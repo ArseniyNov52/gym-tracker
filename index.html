@@ -46,9 +46,8 @@
         .mood-selector { display: flex; justify-content: space-around; gap: 8px; margin-top: 10px; }
         .mood-btn { flex: 1; padding: 15px; font-size: 32px; background: #f8f9fa; border: 3px solid #e9ecef; border-radius: 12px; cursor: pointer; transition: all 0.3s; }
         .mood-btn.selected { border-color: #667eea; background: #e7e9fc; transform: scale(1.1); }
-        .mood-1 { filter: grayscale(50%); }
-        .mood-2 { filter: grayscale(30%); }
-        .mood-5.selected { animation: pulse 1s infinite; }
+        .mood-btn[data-mood="1"] { filter: grayscale(50%); }
+        .mood-btn[data-mood="5"].selected { animation: pulse 1s infinite; }
         @keyframes pulse { 0%, 100% { transform: scale(1.1); } 50% { transform: scale(1.15); } }
         .exercise-list { list-style: none; }
         .exercise-item { background: #f8f9fa; padding: 15px; margin-bottom: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
@@ -241,11 +240,9 @@
             <div class="input-group">
                 <label>Как себя чувствуете?</label>
                 <div class="mood-selector" id="moodSelector">
-                    <button class="mood-btn mood-1" onclick="selectMood(1)">😫</button>
-                    <button class="mood-btn mood-2" onclick="selectMood(2)">😕</button>
-                    <button class="mood-btn mood-3 selected" onclick="selectMood(3)">😐</button>
-                    <button class="mood-btn mood-4" onclick="selectMood(4)">🙂</button>
-                    <button class="mood-btn mood-5" onclick="selectMood(5)">😄</button>
+                    <button class="mood-btn" data-mood="1" onclick="selectMood(1)">😫</button>
+                    <button class="mood-btn selected" data-mood="3" onclick="selectMood(3)">😐</button>
+                    <button class="mood-btn" data-mood="5" onclick="selectMood(5)">😄</button>
                 </div>
             </div>
             <div class="btn-group">
@@ -383,9 +380,9 @@
         }
 
         function selectMood(mood) {
-            currentMood = mood;
-            document.querySelectorAll('#moodSelector .mood-btn').forEach((btn, index) => {
-                btn.classList.toggle('selected', index + 1 === mood);
+            currentMood = parseInt(mood);
+            document.querySelectorAll('#moodSelector .mood-btn').forEach(btn => {
+                btn.classList.toggle('selected', parseInt(btn.dataset.mood) === currentMood);
             });
         }
 
@@ -463,7 +460,6 @@
             showModal('templateModal');
         }
 
-        // === ИСПРАВЛЕННАЯ ФУНКЦИЯ СОХРАНЕНИЯ ШАБЛОНА ===
         function saveTemplate() {
             const nameInput = document.getElementById('templateName');
             if (!nameInput) {
@@ -503,16 +499,13 @@
                 exerciseName: exercises.find(e => e.id === id).name
             }));
 
-            // Проверяем режим: создание или редактирование
             if (currentEditingTemplateId) {
-                // РЕЖИМ РЕДАКТИРОВАНИЯ
                 const templateIndex = templates.findIndex(t => t.id === currentEditingTemplateId);
                 if (templateIndex > -1) {
                     templates[templateIndex].name = name;
                     templates[templateIndex].exercises = mappedExercises;
                     templates[templateIndex].updatedAt = new Date().toISOString();
                 } else {
-                    // Если шаблон не найден (несоответствие ID), создаем новый
                     templates.push({
                         id: Date.now(),
                         name: name,
@@ -521,7 +514,6 @@
                     });
                 }
             } else {
-                // РЕЖИМ СОЗДАНИЯ НОВОГО ШАБЛОНА
                 const newTemplate = {
                     id: Date.now(),
                     name: name,
@@ -543,7 +535,6 @@
             currentEditingTemplateId = null;
             renderTemplates();
             
-            // Показываем успешное сообщение
             alert(`Шаблон "${name}" успешно ${currentEditingTemplateId ? 'обновлен' : 'сохранен'}!`);
         }
 
@@ -844,8 +835,12 @@
         }
 
         function getMoodEmoji(mood) {
-            const emojis = ['😫', '😕', '😐', '🙂', '😄'];
-            return emojis[mood - 1] || '😐';
+            const moodMap = {
+                1: '😫',
+                3: '😐',
+                5: '😄'
+            };
+            return moodMap[mood] || '😐';
         }
 
         function formatDuration(ms) {
