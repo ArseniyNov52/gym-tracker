@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"="width=device-width, initial-scale=1.0">
   <title>GymFlow - Трекер прогресса тренировок</title>
   
   <!-- Google Analytics -->
@@ -39,64 +39,54 @@
     .header-content {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0.75rem 1rem; /* <CHANGE> уменьшен padding для мобильных */
+      padding: 0 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 56px; /* <CHANGE> изменен на min-height вместо height */
-      flex-wrap: wrap; /* <CHANGE> добавлен flex-wrap для переноса */
-      gap: 0.5rem; /* <CHANGE> добавлен gap */
+      height: 64px;
     }
     
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.5rem; /* <CHANGE> уменьшен gap */
+      gap: 0.75rem;
     }
     
     .logo-icon {
-      width: 36px; /* <CHANGE> уменьшен размер */
-      height: 36px;
+      width: 40px;
+      height: 40px;
       background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-      border-radius: 10px; /* <CHANGE> уменьшен border-radius */
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px; /* <CHANGE> уменьшен размер шрифта */
+      font-size: 24px;
       box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
     }
     
     .logo-text h1 {
-      font-size: 1.125rem; /* <CHANGE> уменьшен размер */
+      font-size: 1.25rem;
       font-weight: 700;
       color: #0f172a;
     }
     
     .logo-text p {
-      font-size: 0.7rem; /* <CHANGE> уменьшен размер */
+      font-size: 0.75rem;
       color: #64748b;
-      display: none; /* <CHANGE> скрыт на маленьких экранах */
-    }
-
-    /* <CHANGE> добавлен медиа-запрос для экранов > 480px */
-    @media (min-width: 480px) {
-      .logo-text p {
-        display: block;
-      }
     }
     
     .timer-display {
       display: flex;
       align-items: center;
-      gap: 0.375rem; /* <CHANGE> уменьшен gap */
+      gap: 0.5rem;
       background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-      padding: 0.375rem 0.75rem; /* <CHANGE> уменьшен padding */
-      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
       border: 1px solid #6ee7b7;
     }
     
     .timer-icon {
-      font-size: 14px; /* <CHANGE> уменьшен размер */
+      font-size: 16px;
       animation: pulse 2s infinite;
     }
     
@@ -107,7 +97,7 @@
     
     .timer-text {
       font-family: 'Courier New', monospace;
-      font-size: 0.95rem; /* <CHANGE> уменьшен размер */
+      font-size: 1.125rem;
       font-weight: 600;
       color: #047857;
     }
@@ -115,32 +105,31 @@
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 1rem; /* <CHANGE> уменьшен padding */
+      padding: 2rem 1rem;
     }
     
     .nav {
-      margin-bottom: 1.5rem; /* <CHANGE> уменьшен margin */
+      margin-bottom: 2rem;
     }
     
     .nav-buttons {
       background: white;
-      border-radius: 12px; /* <CHANGE> уменьшен border-radius */
-      padding: 0.375rem; /* <CHANGE> уменьшен padding */
+      border-radius: 16px;
+      padding: 0.5rem;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       border: 1px solid #e2e8f0;
       display: flex;
-      gap: 0.375rem; /* <CHANGE> уменьшен gap */
+      gap: 0.5rem;
       overflow-x: auto;
-      -webkit-overflow-scrolling: touch; /* <CHANGE> добавлен smooth scroll для iOS */
     }
     
     .nav-btn {
       display: flex;
       align-items: center;
-      gap: 0.375rem; /* <CHANGE> уменьшен gap */
-      padding: 0.5rem 0.75rem; /* <CHANGE> уменьшен padding */
-      border-radius: 10px;
-      font-size: 0.8125rem; /* <CHANGE> уменьшен размер шрифта */
+      gap: 0.5rem;
+      padding: 0.625rem 1rem;
+      border-radius: 12px;
+      font-size: 0.875rem;
       font-weight: 500;
       border: none;
       cursor: pointer;
@@ -148,7 +137,6 @@
       white-space: nowrap;
       background: transparent;
       color: #64748b;
-      flex-shrink: 0; /* <CHANGE> предотвращает сжатие кнопок */
     }
     
     .nav-btn:hover {
@@ -164,24 +152,22 @@
     
     .card {
       background: white;
-      border-radius: 12px; /* <CHANGE> уменьшен border-radius */
-      padding: 1.25rem; /* <CHANGE> уменьшен padding */
+      border-radius: 16px;
+      padding: 1.5rem;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       border: 1px solid #e2e8f0;
-      margin-bottom: 1.25rem; /* <CHANGE> уменьшен margin */
+      margin-bottom: 1.5rem;
     }
     
     .card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 1.25rem; /* <CHANGE> уменьшен margin */
-      gap: 0.75rem; /* <CHANGE> добавлен gap */
-      flex-wrap: wrap; /* <CHANGE> добавлен flex-wrap */
+      margin-bottom: 1.5rem;
     }
     
     .card-title {
-      font-size: 1.25rem; /* <CHANGE> уменьшен размер */
+      font-size: 1.5rem;
       font-weight: 700;
       color: #0f172a;
     }
@@ -189,15 +175,14 @@
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.375rem; /* <CHANGE> уменьшен gap */
-      padding: 0.5rem 0.875rem; /* <CHANGE> уменьшен padding */
-      border-radius: 10px;
-      font-size: 0.8125rem; /* <CHANGE> уменьшен размер шрифта */
+      gap: 0.5rem;
+      padding: 0.625rem 1rem;
+      border-radius: 12px;
+      font-size: 0.875rem;
       font-weight: 500;
       border: none;
       cursor: pointer;
       transition: all 0.2s;
-      touch-action: manipulation; /* <CHANGE> улучшает реакцию на касания */
     }
     
     .btn-primary {
@@ -227,25 +212,25 @@
     }
     
     .btn-large {
-      padding: 0.875rem 1.5rem; /* <CHANGE> уменьшен padding */
-      font-size: 0.9375rem; /* <CHANGE> уменьшен размер шрифта */
+      padding: 1rem 2rem;
+      font-size: 1rem;
       font-weight: 600;
     }
     
     .empty-state {
       text-align: center;
-      padding: 2.5rem 1rem; /* <CHANGE> уменьшен padding */
+      padding: 3rem;
       color: #64748b;
     }
     
     .empty-icon {
-      font-size: 3rem; /* <CHANGE> уменьшен размер */
-      margin-bottom: 0.75rem; /* <CHANGE> уменьшен margin */
+      font-size: 4rem;
+      margin-bottom: 1rem;
       opacity: 0.5;
     }
     
     .empty-title {
-      font-size: 1.125rem; /* <CHANGE> уменьшен размер */
+      font-size: 1.25rem;
       font-weight: 600;
       color: #0f172a;
       margin-bottom: 0.5rem;
@@ -260,12 +245,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0.75rem; /* <CHANGE> уменьшен padding */
+      padding: 1rem;
     }
     
     .modal {
       background: white;
-      border-radius: 12px; /* <CHANGE> уменьшен border-radius */
+      border-radius: 16px;
       max-width: 42rem;
       width: 100%;
       max-height: 90vh;
@@ -277,12 +262,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.25rem; /* <CHANGE> уменьшен padding */
+      padding: 1.5rem;
       border-bottom: 1px solid #e2e8f0;
     }
     
     .modal-title {
-      font-size: 1.125rem; /* <CHANGE> уменьшен размер */
+      font-size: 1.25rem;
       font-weight: 700;
       color: #0f172a;
     }
@@ -290,16 +275,10 @@
     .modal-close {
       background: none;
       border: none;
-      font-size: 1.375rem; /* <CHANGE> уменьшен размер */
+      font-size: 1.5rem;
       cursor: pointer;
       color: #94a3b8;
       transition: color 0.2s;
-      padding: 0.25rem; /* <CHANGE> добавлен padding для увеличения зоны тапа */
-      min-width: 44px; /* <CHANGE> добавлен минимальный размер для удобства тапа */
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
     
     .modal-close:hover {
@@ -307,10 +286,9 @@
     }
     
     .modal-body {
-      padding: 1.25rem; /* <CHANGE> уменьшен padding */
+      padding: 1.5rem;
       overflow-y: auto;
       max-height: calc(90vh - 88px);
-      -webkit-overflow-scrolling: touch; /* <CHANGE> добавлен smooth scroll для iOS */
     }
     
     .input {
@@ -336,50 +314,50 @@
     }
     
     .form-group {
-      margin-bottom: 1.25rem; /* <CHANGE> уменьшен margin */
+      margin-bottom: 1.5rem;
     }
     
     .stat-card {
       background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-      border-radius: 10px; /* <CHANGE> уменьшен border-radius */
-      padding: 1rem; /* <CHANGE> уменьшен padding */
+      border-radius: 12px;
+      padding: 1.25rem;
       border: 1px solid #e2e8f0;
     }
     
     .stat-icon {
-      width: 42px; /* <CHANGE> уменьшен размер */
-      height: 42px;
-      border-radius: 10px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px; /* <CHANGE> уменьшен размер */
-      margin-bottom: 0.625rem; /* <CHANGE> уменьшен margin */
+      font-size: 24px;
+      margin-bottom: 0.75rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     
     .stat-value {
-      font-size: 1.625rem; /* <CHANGE> уменьшен размер */
+      font-size: 2rem;
       font-weight: 700;
       color: #0f172a;
       margin-bottom: 0.25rem;
     }
     
     .stat-label {
-      font-size: 0.8125rem; /* <CHANGE> уменьшен размер */
+      font-size: 0.875rem;
       color: #64748b;
     }
     
     .grid {
       display: grid;
-      gap: 0.875rem; /* <CHANGE> уменьшен gap */
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* <CHANGE> уменьшен minmax для мобильных */
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
     
     .exercise-item {
       border: 1px solid #e2e8f0;
-      border-radius: 10px; /* <CHANGE> уменьшен border-radius */
-      padding: 1rem; /* <CHANGE> уменьшен padding */
+      border-radius: 12px;
+      padding: 1.25rem;
       transition: border-color 0.2s;
     }
     
@@ -393,35 +371,49 @@
       justify-content: space-between;
       background: #f8fafc;
       border-radius: 8px;
-      padding: 0.625rem; /* <CHANGE> уменьшен padding */
+      padding: 0.75rem;
       margin-bottom: 0.5rem;
-      gap: 0.5rem; /* <CHANGE> добавлен gap для предотвращения наложений */
     }
     
+    /* Added mobile-friendly chart styles */
     .chart-container {
       background: #f8fafc;
-      border-radius: 10px; /* <CHANGE> уменьшен border-radius */
-      padding: 1.25rem; /* <CHANGE> уменьшен padding */
-      margin-bottom: 1.25rem; /* <CHANGE> уменьшен margin */
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
     
     .chart-title {
-      font-size: 1rem; /* <CHANGE> уменьшен размер */
+      font-size: 1rem;
       font-weight: 600;
       color: #0f172a;
-      margin-bottom: 0.875rem; /* <CHANGE> уменьшен margin */
+      margin-bottom: 0.75rem;
     }
+    
+    @media (min-width: 768px) {
+      .chart-container {
+        padding: 1.5rem;
+      }
+      
+      .chart-title {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+      }
+    }
+    /* </CHANGE> */
     
     .achievement-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* <CHANGE> уменьшен minmax для мобильных */
-      gap: 0.875rem; /* <CHANGE> уменьшен gap */
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
     }
     
     .achievement-card {
       border: 2px solid #e2e8f0;
-      border-radius: 10px; /* <CHANGE> уменьшен border-radius */
-      padding: 1rem; /* <CHANGE> уменьшен padding */
+      border-radius: 12px;
+      padding: 1.25rem;
       text-align: center;
       transition: all 0.2s;
     }
@@ -437,31 +429,31 @@
     }
     
     .achievement-icon {
-      font-size: 2.5rem; /* <CHANGE> уменьшен размер */
-      margin-bottom: 0.625rem; /* <CHANGE> уменьшен margin */
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
     }
     
     .achievement-title {
       font-weight: 700;
-      font-size: 1rem; /* <CHANGE> уменьшен размер */
+      font-size: 1.125rem;
       color: #0f172a;
       margin-bottom: 0.25rem;
     }
     
     .achievement-desc {
-      font-size: 0.8125rem; /* <CHANGE> уменьшен размер */
+      font-size: 0.875rem;
       color: #64748b;
     }
     
     .counter {
       display: flex;
       align-items: center;
-      gap: 0.625rem; /* <CHANGE> уменьшен gap */
+      gap: 0.75rem;
     }
     
     .counter-btn {
-      width: 44px; /* <CHANGE> увеличен размер для удобства тапа */
-      height: 44px;
+      width: 48px;
+      height: 48px;
       background: #f1f5f9;
       border: none;
       border-radius: 8px;
@@ -470,8 +462,6 @@
       color: #475569;
       cursor: pointer;
       transition: background 0.2s;
-      flex-shrink: 0; /* <CHANGE> предотвращает сжатие кнопок */
-      touch-action: manipulation; /* <CHANGE> улучшает реакцию на касания */
     }
     
     .counter-btn:hover {
@@ -481,94 +471,33 @@
     .counter-input {
       flex: 1;
       text-align: center;
-      font-size: 1.375rem; /* <CHANGE> уменьшен размер */
+      font-size: 1.5rem;
       font-weight: 700;
       border: 2px solid #e2e8f0;
       border-radius: 8px;
-      padding: 0.625rem; /* <CHANGE> уменьшен padding */
-      min-width: 0; /* <CHANGE> позволяет input сжиматься */
+      padding: 0.75rem;
     }
     
     .mood-selector {
       display: flex;
-      gap: 0.625rem; /* <CHANGE> уменьшен gap */
+      gap: 0.75rem;
     }
     
     .mood-btn {
       flex: 1;
-      padding: 0.875rem; /* <CHANGE> уменьшен padding */
-      font-size: 1.75rem; /* <CHANGE> уменьшен размер */
+      padding: 1rem;
+      font-size: 2rem;
       border: 2px solid #e2e8f0;
       border-radius: 8px;
       background: white;
       cursor: pointer;
       transition: all 0.2s;
-      min-width: 0; /* <CHANGE> позволяет кнопкам сжиматься */
-      touch-action: manipulation; /* <CHANGE> улучшает реакцию на касания */
     }
     
     .mood-btn.selected {
       border-color: #2563eb;
       background: #eff6ff;
       transform: scale(1.05);
-    }
-
-    /* <CHANGE> добавлены медиа-запросы для планшетов */
-    @media (min-width: 640px) {
-      .grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      }
-      
-      .achievement-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      }
-
-      .card {
-        padding: 1.5rem;
-      }
-
-      .card-title {
-        font-size: 1.5rem;
-      }
-
-      .stat-value {
-        font-size: 2rem;
-      }
-
-      .chart-container {
-        padding: 1.5rem;
-      }
-    }
-
-    /* <CHANGE> добавлены стили для десктопа */
-    @media (min-width: 1024px) {
-      .container {
-        padding: 2rem 1rem;
-      }
-
-      .nav {
-        margin-bottom: 2rem;
-      }
-
-      .card {
-        padding: 1.5rem;
-        border-radius: 16px;
-      }
-
-      .nav-buttons {
-        padding: 0.5rem;
-        border-radius: 16px;
-      }
-
-      .achievement-icon {
-        font-size: 3rem;
-      }
-
-      .stat-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 24px;
-      }
     }
   </style>
 </head>
@@ -616,8 +545,18 @@
         {id: 't250t', title: 'Стальной характер', description: 'Общий тоннаж >250 т', icon: '🔨'},
         {id: 't500t', title: 'Архитектор тела', description: 'Общий тоннаж >500 т', icon: '🏛️'},
         {id: 't1000t', title: 'Покоритель вершин', description: 'Общий тоннаж >1000 т', icon: '🏔️'}
+      ]},
+      {name: 'Проведенное время в зале', achievements: [
+        {id: 'time5h', title: 'Первые шаги', description: 'Провести >5 часов в зале', icon: '⏱️'},
+        {id: 'time20h', title: 'Завсегдатай', description: 'Провести >20 часов в зале', icon: '🕐'},
+        {id: 'time50h', title: 'Преданный фитнесу', description: 'Провести >50 часов в зале', icon: '⏰'},
+        {id: 'time100h', title: 'Марафонец', description: 'Провести >100 часов в зале', icon: '⌚'},
+        {id: 'time250h', title: 'Храм силы', description: 'Провести >250 часов в зале', icon: '🏛️'},
+        {id: 'time500h', title: 'Железная жизнь', description: 'Провести >500 часов в зале', icon: '💫'}
       ]}
     ];
+    // </CHANGE>
+
 
     function App() {
       const [activeTab, setActiveTab] = useState('workout');
@@ -725,8 +664,14 @@
         const getTotalVolume = (ww) => 
           ww.reduce((t, w) => t + getWorkoutVolume(w), 0);
 
+        const getTotalHours = (ww) => {
+          const totalMs = ww.reduce((sum, w) => w.endDate ? sum + (new Date(w.endDate).getTime() - new Date(w.startDate).getTime()) : sum, 0);
+          return totalMs / 3600000;
+        };
+
         const lastVolume = getWorkoutVolume(lastWorkout);
         const totalVol = getTotalVolume(workouts);
+        const totalHours = getTotalHours(workouts);
 
         const checks = [
           { id: 'c1', condition: workouts.length >= 1 },
@@ -746,7 +691,13 @@
           { id: 't100t', condition: totalVol > 100000 },
           { id: 't250t', condition: totalVol > 250000 },
           { id: 't500t', condition: totalVol > 500000 },
-          { id: 't1000t', condition: totalVol > 1000000 }
+          { id: 't1000t', condition: totalVol > 1000000 },
+          { id: 'time5h', condition: totalHours > 5 },
+          { id: 'time20h', condition: totalHours > 20 },
+          { id: 'time50h', condition: totalHours > 50 },
+          { id: 'time100h', condition: totalHours > 100 },
+          { id: 'time250h', condition: totalHours > 250 },
+          { id: 'time500h', condition: totalHours > 500 }
         ];
 
         const newly = [];
@@ -771,6 +722,7 @@
           }, 500);
         }
       };
+      // </CHANGE>
 
       const finishWorkout = () => {
         if (!currentWorkout) return;
@@ -929,9 +881,9 @@
               {activeTab === 'settings' && (
                 <SettingsTab
                   exercises={exercises}
-                  onAddExercise={(name) => {
+                  onAddExercise={(name, group) => {
                     const id = Date.now();
-                    setExercises([...exercises, { id, name, group: 'Пользовательские', system: false }]);
+                    setExercises([...exercises, { id, name, group: group || 'Пользовательские', system: false }]);
                   }}
                   onDeleteExercise={(id) => {
                     const ex = exercises.find(e => e.id === id);
@@ -957,6 +909,7 @@
         </div>
       );
     }
+
 
     function WorkoutTab({ currentWorkout, exercises, onStartWorkout, onFinishWorkout, onUpdateWorkout }) {
       const [showExerciseModal, setShowExerciseModal] = useState(false);
@@ -1092,6 +1045,7 @@
           </div>
         );
       }
+
 
       return (
         <div>
@@ -1296,6 +1250,7 @@
       );
     }
 
+
     function TemplatesTab({ templates, exercises, onSaveTemplate, onDeleteTemplate, onStartFromTemplate }) {
       const [showModal, setShowModal] = useState(false);
       const [showViewModal, setShowViewModal] = useState(false);
@@ -1394,7 +1349,7 @@
                     <p style={{fontSize: '0.875rem', color: '#64748b', marginBottom: '1rem'}}>
                       {template.exercises.map(e => e.exerciseName).join(', ')}
                     </p>
-                    <div style={{display: 'flex', gap: '0.5rem', flexWrap: 'wrap'}}>
+                    <div style={{display: 'flex', gap: '0.5rem'}}>
                       <button onClick={() => openViewModal(template)} className="btn btn-secondary" style={{fontSize: '0.875rem'}}>
                         <span>👁️</span> Посмотреть
                       </button>
@@ -1457,7 +1412,7 @@
                   </div>
                 </div>
 
-                <div style={{display: 'flex', gap: '0.75rem', flexWrap: 'wrap'}}>
+                <div style={{display: 'flex', gap: '0.75rem'}}>
                   <button onClick={saveTemplate} className="btn btn-primary" style={{flex: 1, padding: '0.75rem'}}>
                     Сохранить
                   </button>
@@ -1481,7 +1436,7 @@
                   ))}
                 </div>
 
-                <div style={{display: 'flex', gap: '0.75rem', paddingTop: '1rem', flexWrap: 'wrap'}}>
+                <div style={{display: 'flex', gap: '0.75rem', paddingTop: '1rem'}}>
                   <button onClick={() => { setShowViewModal(false); onStartFromTemplate(viewingTemplate.id); }} className="btn btn-primary" style={{flex: 1, padding: '0.75rem'}}>
                     Начать тренировку
                   </button>
@@ -1495,6 +1450,7 @@
         </div>
       );
     }
+
 
     function HistoryTab({ workouts, exercises }) {
       const [expandedId, setExpandedId] = useState(null);
@@ -1616,7 +1572,11 @@
                            [...workouts].reverse().find(w => w.bodyWeightBefore)?.bodyWeightBefore;
       
       const totalMs = workouts.reduce((sum, w) => w.endDate ? sum + (new Date(w.endDate).getTime() - new Date(w.startDate).getTime()) : sum, 0);
-      const totalHours = Math.round(totalMs / 3600000);
+      
+      const totalHours = Math.floor(totalMs / 3600000);
+      const totalMinutes = Math.floor((totalMs % 3600000) / 60000);
+      const gymTimeDisplay = `${totalHours}ч ${totalMinutes}м`;
+      // </CHANGE>
 
       const stats = [
         { label: 'Тренировок', value: totalWorkouts, icon: '💪', gradient: 'linear-gradient(135deg, #3b82f6 0%, #4f46e5 100%)' },
@@ -1624,7 +1584,7 @@
         { label: 'Поднято тонн', value: (totalVolume / 1000).toFixed(1), icon: '⚖️', gradient: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)' },
         { label: 'Настроение', value: avgMood, icon: '❤️', gradient: 'linear-gradient(135deg, #f59e0b 0%, #f97316 100%)' },
         { label: 'Вес (кг)', value: latestWeight ? latestWeight.toFixed(1) : 'N/A', icon: '⚖️', gradient: 'linear-gradient(135deg, #f43f5e 0%, #dc2626 100%)' },
-        { label: 'Часов в зале', value: totalHours, icon: '⏱️', gradient: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)' },
+        { label: 'Время в зале', value: gymTimeDisplay, icon: '⏱️', gradient: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)' },
       ];
 
       const exercisesWithData = exercises.filter(ex => 
@@ -1742,14 +1702,16 @@
       const minValue = Math.min(...data.map(p => p[dataKey]));
       const range = maxValue - minValue || 1;
 
+      // Calculate Y-axis labels (5 levels)
       const yAxisLabels = [];
       for (let i = 0; i <= 4; i++) {
         yAxisLabels.push((minValue + (range * i / 4)).toFixed(1));
       }
 
       return (
-        <div style={{height: '300px', position: 'relative'}}>
+        <div style={{height: '300px', position: 'relative', minWidth: data.length === 1 ? '300px' : '600px'}}>
           <svg viewBox="0 0 900 350" style={{width: '100%', height: '100%'}}>
+            {/* Y-axis labels */}
             {yAxisLabels.map((labelValue, i) => (
               <g key={i}>
                 <line
@@ -1771,7 +1733,28 @@
               </g>
             ))}
             
-            {data.length > 1 && (
+            {data.length === 1 ? (
+              // Show single point when only one data point
+              <g>
+                <circle cx={450} cy={280 - ((data[0][dataKey] - minValue) / range) * 240} r="6" fill={color} />
+                <text
+                  x={450}
+                  y={280 - ((data[0][dataKey] - minValue) / range) * 240 - 15}
+                  textAnchor="middle"
+                  style={{fontSize: '12px', fill: '#475569', fontWeight: '600'}}
+                >
+                  {data[0][dataKey].toFixed(1)} {label}
+                </text>
+                <text
+                  x={450}
+                  y={320}
+                  textAnchor="middle"
+                  style={{fontSize: '11px', fill: '#64748b'}}
+                >
+                  {data[0].date}
+                </text>
+              </g>
+            ) : (
               <>
                 <polyline
                   points={data.map((point, idx) => {
@@ -1786,6 +1769,7 @@
                   strokeLinejoin="round"
                 />
                 
+                {/* Points and labels */}
                 {data.map((point, idx) => {
                   const x = 100 + (idx / (data.length - 1)) * 750;
                   const y = 280 - ((point[dataKey] - minValue) / range) * 240;
@@ -1817,6 +1801,7 @@
         </div>
       );
     }
+    // </CHANGE>
 
     function DualLineChart({ data }) {
       if (data.length === 0) return null;
@@ -1826,6 +1811,7 @@
       const maxWeight = Math.max(...allWeights);
       const range = maxWeight - minWeight || 1;
 
+      // Calculate Y-axis labels
       const yAxisLabels = [];
       for (let i = 0; i <= 4; i++) {
         yAxisLabels.push((minWeight + (range * i / 4)).toFixed(1));
@@ -1835,8 +1821,9 @@
       const afterData = data.filter(p => p.after);
 
       return (
-        <div style={{height: '300px', position: 'relative'}}>
+        <div style={{height: '380px', position: 'relative', minWidth: data.length === 1 ? '300px' : '600px'}}>
           <svg viewBox="0 0 900 350" style={{width: '100%', height: '100%'}}>
+            {/* Y-axis labels */}
             {yAxisLabels.map((labelValue, i) => (
               <g key={i}>
                 <line
@@ -1858,7 +1845,25 @@
               </g>
             ))}
             
-            {beforeData.length > 1 && (
+            {/* Before weight line or point */}
+            {beforeData.length === 1 ? (
+              <g>
+                <circle 
+                  cx={450}
+                  cy={280 - ((beforeData[0].before - minWeight) / range) * 240}
+                  r="5" 
+                  fill="#10b981" 
+                />
+                <text
+                  x={450}
+                  y={280 - ((beforeData[0].before - minWeight) / range) * 240 + 20}
+                  textAnchor="middle"
+                  style={{fontSize: '11px', fill: '#047857', fontWeight: '600'}}
+                >
+                  {beforeData[0].before.toFixed(1)}
+                </text>
+              </g>
+            ) : beforeData.length > 1 && (
               <>
                 <polyline
                   points={beforeData.map((point, idx) => {
@@ -1892,7 +1897,25 @@
               </>
             )}
             
-            {afterData.length > 1 && (
+            {/* After weight line or point */}
+            {afterData.length === 1 ? (
+              <g>
+                <circle 
+                  cx={450}
+                  cy={280 - ((afterData[0].after - minWeight) / range) * 240}
+                  r="5" 
+                  fill="#f43f5e" 
+                />
+                <text
+                  x={450}
+                  y={280 - ((afterData[0].after - minWeight) / range) * 240 - 12}
+                  textAnchor="middle"
+                  style={{fontSize: '11px', fill: '#be123c', fontWeight: '600'}}
+                >
+                  {afterData[0].after.toFixed(1)}
+                </text>
+              </g>
+            ) : afterData.length > 1 && (
               <>
                 <polyline
                   points={afterData.map((point, idx) => {
@@ -1927,8 +1950,9 @@
               </>
             )}
 
+            {/* Dates */}
             {data.map((point, idx) => {
-              const x = 100 + (idx / (data.length - 1)) * 750;
+              const x = data.length === 1 ? 450 : 100 + (idx / (data.length - 1)) * 750;
               return (
                 <text
                   key={idx}
@@ -1943,7 +1967,7 @@
             })}
           </svg>
           
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', marginTop: '1rem', flexWrap: 'wrap'}}>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', marginTop: '0.5rem'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
               <div style={{width: '16px', height: '16px', background: '#10b981', borderRadius: '50%'}}></div>
               <span style={{fontSize: '0.875rem', color: '#64748b'}}>До тренировки</span>
@@ -1956,13 +1980,15 @@
         </div>
       );
     }
+    // </CHANGE>
 
     function MoodChart({ data }) {
       if (data.length === 0) return null;
 
       return (
-        <div style={{height: '300px', position: 'relative'}}>
+        <div style={{height: '300px', position: 'relative', minWidth: data.length === 1 ? '300px' : '600px'}}>
           <svg viewBox="0 0 900 350" style={{width: '100%', height: '100%'}}>
+            {/* Y-axis labels (mood levels 1-5) */}
             {[1, 2, 3, 4, 5].map(i => (
               <g key={i}>
                 <line
@@ -1984,7 +2010,39 @@
               </g>
             ))}
             
-            {data.length > 1 && (
+            {data.length === 1 ? (
+              // Show single point
+              <g>
+                <defs>
+                  <linearGradient id="moodGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style={{stopColor: '#f59e0b'}} />
+                    <stop offset="100%" style={{stopColor: '#10b981'}} />
+                  </linearGradient>
+                </defs>
+                <circle 
+                  cx={450} 
+                  cy={280 - ((data[0].mood - 1) / 4) * 240} 
+                  r="6" 
+                  fill={data[0].mood === 5 ? '#10b981' : data[0].mood >= 4 ? '#84cc16' : data[0].mood >= 3 ? '#facc15' : data[0].mood >= 2 ? '#fb923c' : '#ef4444'} 
+                />
+                <text
+                  x={450}
+                  y={280 - ((data[0].mood - 1) / 4) * 240 - 15}
+                  textAnchor="middle"
+                  style={{fontSize: '18px'}}
+                >
+                  {data[0].mood === 1 ? '😫' : data[0].mood === 5 ? '😄' : '😐'}
+                </text>
+                <text
+                  x={450}
+                  y={320}
+                  textAnchor="middle"
+                  style={{fontSize: '11px', fill: '#64748b'}}
+                >
+                  {data[0].date}
+                </text>
+              </g>
+            ) : (
               <>
                 <defs>
                   <linearGradient id="moodGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -2005,6 +2063,7 @@
                   strokeLinejoin="round"
                 />
                 
+                {/* Points */}
                 {data.map((point, idx) => {
                   const x = 100 + (idx / (data.length - 1)) * 750;
                   const y = 280 - ((point.mood - 1) / 4) * 240;
@@ -2043,6 +2102,8 @@
         </div>
       );
     }
+    // </CHANGE>
+
 
     function AchievementsTab({ unlockedAchievements }) {
       return (
@@ -2051,7 +2112,7 @@
           
           {ACHIEVEMENT_CATEGORIES.map((category, catIdx) => (
             <div key={catIdx} style={{marginBottom: '2rem'}}>
-              <h3 style={{fontSize: '1.125rem', fontWeight: 600, color: '#2563eb', marginBottom: '1rem', paddingBottom: '0.5rem', borderBottom: '2px solid #e2e8f0'}}>
+              <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#2563eb', marginBottom: '1rem', paddingBottom: '0.5rem', borderBottom: '2px solid #e2e8f0'}}>
                 {category.name}
               </h3>
               <div className="achievement-grid">
@@ -2079,6 +2140,8 @@
 
     function SettingsTab({ exercises, onAddExercise, onDeleteExercise, onExportData, onResetData }) {
       const [newExerciseName, setNewExerciseName] = useState('');
+      const [newExerciseCategory, setNewExerciseCategory] = useState('');
+      const [customCategory, setCustomCategory] = useState('');
       const [showLibraryModal, setShowLibraryModal] = useState(false);
 
       const addExercise = () => {
@@ -2091,12 +2154,18 @@
           alert('Такое упражнение уже существует');
           return;
         }
-        onAddExercise(name);
+        
+        const category = newExerciseCategory === 'custom' ? customCategory.trim() || 'Пользовательские' : newExerciseCategory || 'Пользовательские';
+        
+        onAddExercise(name, category);
         setNewExerciseName('');
-        alert(`Упражнение «${name}» добавлено!`);
+        setNewExerciseCategory('');
+        setCustomCategory('');
+        alert(`Упражнение «${name}» добавлено в категорию «${category}»!`);
       };
 
       const userExercises = exercises.filter(e => !e.system);
+      const availableCategories = Object.keys(exerciseDatabase);
 
       return (
         <div>
@@ -2106,7 +2175,8 @@
             <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
               <div>
                 <h3 style={{fontSize: '1.125rem', fontWeight: 600, color: '#0f172a', marginBottom: '1rem'}}>Библиотека упражнений</h3>
-                <div style={{display: 'flex', gap: '0.75rem', marginBottom: '1rem', flexWrap: 'wrap'}}>
+                
+                <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1rem'}}>
                   <input
                     type="text"
                     value={newExerciseName}
@@ -2114,8 +2184,30 @@
                     placeholder="Название упражнения"
                     onKeyDown={e => e.key === 'Enter' && addExercise()}
                     className="input"
-                    style={{flex: 1, minWidth: '200px'}}
                   />
+                  
+                  <select
+                    value={newExerciseCategory}
+                    onChange={e => setNewExerciseCategory(e.target.value)}
+                    className="input"
+                  >
+                    <option value="">Выберите категорию</option>
+                    {availableCategories.map(cat => (
+                      <option key={cat} value={cat}>{cat}</option>
+                    ))}
+                    <option value="custom">+ Создать новую категорию</option>
+                  </select>
+                  
+                  {newExerciseCategory === 'custom' && (
+                    <input
+                      type="text"
+                      value={customCategory}
+                      onChange={e => setCustomCategory(e.target.value)}
+                      placeholder="Название новой категории"
+                      className="input"
+                    />
+                  )}
+                  
                   <button onClick={addExercise} className="btn btn-primary">
                     Добавить
                   </button>
@@ -2186,7 +2278,10 @@
                     <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
                       {userExercises.map(ex => (
                         <div key={ex.id} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.75rem', background: '#f8fafc', borderRadius: '8px'}}>
-                          <span style={{color: '#475569'}}>{ex.name}</span>
+                          <div>
+                            <span style={{color: '#475569', display: 'block'}}>{ex.name}</span>
+                            <span style={{fontSize: '0.75rem', color: '#94a3b8'}}>({ex.group})</span>
+                          </div>
                           <button onClick={() => onDeleteExercise(ex.id)} style={{background: 'none', border: 'none', color: '#ef4444', cursor: 'pointer', fontSize: '1.125rem'}}>
                             🗑️
                           </button>
@@ -2201,6 +2296,7 @@
         </div>
       );
     }
+    // </CHANGE>
 
     function Modal({ onClose, title, children }) {
       return (
