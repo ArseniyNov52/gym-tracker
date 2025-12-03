@@ -919,17 +919,28 @@
         
         const savedGoals = localStorage.getItem('gym_goals');
         if (savedGoals) setGoals(JSON.parse(savedGoals));
-      }, []);
 
-      // useEffect(() => {
-      //   let interval;
-      //   if (isTimerRunning && currentWorkout) {
-      //     interval = setInterval(() => {
-      //       setTimerSeconds(s => s + 1);
-      //     }, 1000);
-      //   }
-      //   return () => clearInterval(interval);
-      // }, [isTimerRunning, currentWorkout]); // REMOVED for new timer logic
+        // Восстановление текущей тренировки
+        const savedCurrentWorkout = localStorage.getItem('gym_current_workout');
+        if (savedCurrentWorkout) {
+          const workout = JSON.parse(savedCurrentWorkout);
+          setCurrentWorkout(workout);
+          
+          const savedTimerSeconds = localStorage.getItem('gym_timer_seconds');
+          const savedTimerStartTime = localStorage.getItem('gym_timer_start_time');
+          
+          if (savedTimerStartTime) {
+            // Восстановление таймера с учетом прошедшего времени
+            const startTime = parseInt(savedTimerStartTime);
+            const now = Date.now();
+            const elapsed = Math.floor((now - startTime) / 1000);
+            timerStartTimeRef.current = startTime;
+            setTimerSeconds(elapsed);
+            setIsTimerRunning(true);
+          }
+        }
+      }, []);
+      // </CHANGE>
 
       useEffect(() => {
         localStorage.setItem('gym_exercises', JSON.stringify(exercises.filter(e => !e.system)));
@@ -937,7 +948,21 @@
         localStorage.setItem('gym_templates', JSON.stringify(templates));
         localStorage.setItem('gym_achievements', JSON.stringify(unlockedAchievements));
         localStorage.setItem('gym_goals', JSON.stringify(goals));
-      }, [exercises, workouts, templates, unlockedAchievements, goals]);
+
+        // Сохранение текущей тренировки
+        if (currentWorkout) {
+          localStorage.setItem('gym_current_workout', JSON.stringify(currentWorkout));
+          localStorage.setItem('gym_timer_seconds', timerSeconds.toString());
+          if (timerStartTimeRef.current) {
+            localStorage.setItem('gym_timer_start_time', timerStartTimeRef.current.toString());
+          }
+        } else {
+          localStorage.removeItem('gym_current_workout');
+          localStorage.removeItem('gym_timer_seconds');
+          localStorage.removeItem('gym_timer_start_time');
+        }
+      }, [exercises, workouts, templates, unlockedAchievements, goals, currentWorkout, timerSeconds]);
+      // </CHANGE>
 
       const formatTime = (seconds) => {
         const h = Math.floor(seconds / 3600);
@@ -1725,13 +1750,18 @@
           {showExerciseModal && (
             <Modal onClose={() => setShowExerciseModal(false)} title="Добавить упражнение">
               <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem', maxHeight: '60vh', overflowY: 'auto'}}>
-                {Object.entries(exerciseDatabase).map(([group, exList]) => (
-                  <div key={group}>
-                    <h4 style={{fontWeight: 600, color: '#475569', marginBottom: '0.5rem', marginTop: '1rem', textTransform: 'uppercase', fontSize: '0.875rem'}}>{group}</h4>
-                    {exList.map(exName => {
-                      const exercise = exercises.find(e => e.name === exName);
-                      if (!exercise) return null;
-                      return (
+                {(() => {
+                  const groupedExercises = {};
+                  exercises.forEach(ex => {
+                    const group = ex.group || 'Пользовательские';
+                    if (!groupedExercises[group]) groupedExercises[group] = [];
+                    groupedExercises[group].push(ex);
+                  });
+                  
+                  return Object.entries(groupedExercises).map(([group, exList]) => (
+                    <div key={group}>
+                      <h4 style={{fontWeight: 600, color: '#475569', marginBottom: '0.5rem', marginTop: '1rem', textTransform: 'uppercase', fontSize: '0.875rem'}}>{group}</h4>
+                      {exList.map(exercise => (
                         <button
                           key={exercise.id}
                           onClick={() => addExerciseToWorkout(exercise.id)}
@@ -1740,10 +1770,11 @@
                         >
                           {exercise.name}
                         </button>
-                      );
-                    })}
-                  </div>
-                ))}
+                      ))}
+                    </div>
+                  ));
+                })()}
+                {/* </CHANGE> */}
               </div>
             </Modal>
           )}
@@ -3116,7 +3147,7 @@
                       <div key={ex.id} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.75rem', background: '#f8fafc', borderRadius: '8px'}}>
                         <div>
                           <p style={{fontWeight: 500, color: '#0f172a'}}>{ex.name}</p>
-                          <p style={{fontSize: '0.75rem', color: '#64748b'}}>{ex.group}</p>
+                          <p style={{fontSize: '0.75rem', color: '#94a3b8'}}>{ex.group}</p>
                         </div>
                         <button onClick={() => onDeleteExercise(ex.id)} style={{background: 'none', border: 'none', color: '#ef4444', cursor: 'pointer', fontSize: '1.25rem'}}>
                           🗑️
